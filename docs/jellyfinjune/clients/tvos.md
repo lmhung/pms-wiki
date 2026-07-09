@@ -1,9 +1,9 @@
 # Jellyfin tvOS client buyer's guide
 
-!!! info "Last updated: 2026-06-27"
+!!! info "Last updated: 2026-07-09"
     Codec support below is based on App Store listings and project documentation on a best effort basis. Prices are US App Store prices where listed. If you spot a mistake, please open a PR!
 
-This guide covers the tvOS clients reviewed in [JellyfinJune Episode 4](https://perfectmediaserver.com/jellyfinjune/e04/).
+This guide covers the tvOS clients reviewed in [JellyfinJune Episode 4](https://perfectmediaserver.com/jellyfinjune/e04/), plus VidHub as a later research-only addition that was not tested in the episode.
 
 ## Legend
 
@@ -22,6 +22,7 @@ This guide covers the tvOS clients reviewed in [JellyfinJune Episode 4](https://
 | --- | --- | --- | --- | --- | --- |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/swiftfin.jpg" alt=""> [Swiftfin](#swiftfin) | Official baseline | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Live TV, recordings | Free |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/infuse.jpg" alt=""> [Infuse](#infuse) | Maximum format compatibility | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Plex, Emby, Jellyfin, NAS, cloud, Trakt | Free + Pro |
+| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/vidhub.jpg" alt=""> [VidHub](#vidhub) | Budget Infuse alternative | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-partial">Partial codecs</span> | SMB, WebDAV, cloud, Plex, Emby, Jellyfin | Free + VIP |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/neptune.png" alt=""> [Neptune](#neptune) | Polished Jellyfin UI | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, AI search, profiles | Free base, paid planned |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/zuno.jpg" alt=""> [Zuno](#zuno) | Plex/Jellyfin beta | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Seerr and Trakt seen in episode | TestFlight beta |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/jellysee.jpg" alt=""> [JellySee](#jellysee) | Seerr plus music | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, music, PiP, trickplay | Paid app |
@@ -55,6 +56,7 @@ These tables break out codec-adjacent features that matter for real Apple TV pla
 | --- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | --- |
 | [Swiftfin](#swiftfin) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | Caveated |
 | [Infuse](#infuse) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
+| [VidHub](#vidhub) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
 | [Neptune](#neptune) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | P5, P7, P8 |
 | [Zuno](#zuno) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | Unspecified |
 | [JellySee](#jellysee) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | P5, P7, P8.1, P8.4 |
@@ -76,6 +78,7 @@ These tables break out codec-adjacent features that matter for real Apple TV pla
 | --- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | [Swiftfin](#swiftfin) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
 | [Infuse](#infuse) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
+| [VidHub](#vidhub) | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
 | [Neptune](#neptune) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
 | [Zuno](#zuno) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> |
 | [JellySee](#jellysee) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
@@ -137,6 +140,29 @@ Sources: [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728), [Swif
     App Store lists video/container support for 33GP, AVI, AV1, ASF, BDMV, DIVX, DVDMEDIA, DVR-MS, FLV, H.264/AVC, H.265/HEVC, ISO/IMG, M4V, MKV, MOV, MP4, MPEG, MTS/M2TS, MXF, OGM, OGV, RMVB, TS, VC1, VIDEO_TS, VOB, VP9, WEBM, WMV, and WTV. Audio includes AAC, AC3/E-AC3, Dolby TrueHD, DTS, DTS-HD MA, FLAC, MP3, OGG, PCM, and WMA. Subtitles include DVB, DVDSUB, MicroDVD, MPL2, PGS, SMI, SSA/ASS, SRT, SUB, SUP, Timed Text, TXT, VobSub, VTT, and XSUB. HDR claims include HDR, HDR10+, and Dolby Vision.
 
 Sources: [App Store](https://apps.apple.com/us/app/infuse/id1136220934)
+{: .client-source-list }
+
+<h2 id="vidhub" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/vidhub.jpg" alt=""> VidHub</h2>
+<p class="client-summary">Multi-source Apple ecosystem player that can connect directly to Jellyfin, Plex, Emby, SMB/WebDAV/NAS, and several cloud drives. It looks like a legitimate budget Infuse alternative on paper, but it was not tested in the JellyfinJune tvOS episode.</p>
+
+<div class="client-facts" markdown>
+<span><strong>Price:</strong> Free download; VIP IAPs list monthly $1.49, yearly $9.99, lifetime $15.99/$31.99, and platform-specific lifetime tiers including Apple TV-only $14.99/$29.99.</span>
+<span><strong>Version checked:</strong> App Store 3.0.1, released 2026-07-09.</span>
+</div>
+
+<div class="client-note-grid" markdown>
+<div markdown>
+**Good fit:** You want a cheaper Infuse-style app for Jellyfin plus SMB/WebDAV/NAS/cloud sources, and you are willing to test before buying lifetime.
+</div>
+<div markdown>
+**Watch outs:** Not tested in the episode; public codec detail is partial, the UI and subtitle/playback path is still changing quickly, and read-only/limited media credentials are the sensible default.
+</div>
+</div>
+
+??? info "Published codec details"
+    App Store and VidHub docs list containers/formats including MKV, AVI, MP4, MOV, RMVB/RM, WEBM, WMV, and MPEG, plus HD/4K/HDR and Dolby Vision claims. Subtitle support includes embedded subtitles and external SRT, SSA, ASS, and SUB, while current release notes mention secondary subtitles, PGS subtitle fixes, Dolby Atmos support, DDP 2.0 Atmos-tagging fixes, ISO playback fixes, SMB guest login, SMB speed improvements, and Plex-related fixes. I did not find a full public video codec table, audio codec table, or Dolby Vision profile list.
+
+Sources: [App Store](https://apps.apple.com/us/app/vidhub-video-library-player/id1659622164), [VidHub docs](https://vidhub.okaapps.com/what-does-vidhub-do/), [Oka Apps product page](https://okaapps.com/product/1659622164)
 {: .client-source-list }
 
 <h2 id="neptune" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/neptune.png" alt=""> Neptune</h2>
